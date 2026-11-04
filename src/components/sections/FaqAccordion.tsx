@@ -25,8 +25,8 @@ export function FaqAccordion({ seccion, id }: SeccionProps<"faq">) {
         <div className="divide-y divide-gold/30 border-y border-gold/30">
           {seccion.items.map((item) => (
             <details key={item.pregunta} className="group">
-              <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-4 font-semibold [&::-webkit-details-marker]:hidden">
-                <h3>{item.pregunta}</h3>
+              <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-4 [&::-webkit-details-marker]:hidden">
+                <h3 className="font-serif text-lg">{item.pregunta}</h3>
                 <ChevronDown
                   className="size-5 shrink-0 text-gold-deep transition-transform group-open:rotate-180"
                   strokeWidth={1.5}

@@ -108,6 +108,27 @@ export function Footer() {
         <p className="mt-6 text-xs text-white/60">
           © {site.nombre} · {abogado.nombre} · {abogado.matricula}
         </p>
+        <p className="mt-2 text-xs text-white/60">
+          Foto de portada:{" "}
+          <a
+            href={site.creditoPortada.obraUrl}
+            className="underline underline-offset-2 hover:text-gold"
+            rel="noopener"
+            target="_blank"
+          >
+            {site.creditoPortada.obra}
+          </a>
+          , por {site.creditoPortada.autor} (
+          <a
+            href={site.creditoPortada.licenciaUrl}
+            className="underline underline-offset-2 hover:text-gold"
+            rel="license noopener"
+            target="_blank"
+          >
+            {site.creditoPortada.licencia}
+          </a>
+          ), editada.
+        </p>
       </Container>
     </footer>
   );

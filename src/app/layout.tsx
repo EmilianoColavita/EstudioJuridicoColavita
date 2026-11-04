@@ -12,6 +12,8 @@ const inter = Inter({
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
+  // Itálica real: el "Estudio jurídico" del logo la usa (sin esto el navegador la simula inclinando la normal)
+  style: ["normal", "italic"],
   subsets: ["latin"],
 });
 

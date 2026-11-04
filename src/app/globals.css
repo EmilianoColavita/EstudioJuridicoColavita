@@ -5,6 +5,8 @@
   --color-navy: #1a1d2e;
   --color-navy-soft: #2b2f47;
   --color-gold: #c5a059;
+  /* Brillo del dorado metálico (degradado de los íconos de áreas) */
+  --color-gold-light: #ecd7a0;
   /* Dorado oscurecido para texto chico sobre crema/perla (el dorado original no llega a AA) */
   --color-gold-deep: #7a5c26;
   --color-cream: #f9f8f5;
@@ -13,6 +15,11 @@
   --color-whatsapp: #25d366;
   --color-alert: #8b2e2e;
   --color-alert-bg: #fbf1f0;
+  /* Banderas del ícono de Ciudadanías (tonos apagados para no romper la paleta sobria) */
+  --color-flag-red: #a8322d;
+  --color-flag-yellow: #d9ae3f;
+  --color-flag-green: #3f6e4e;
+  --color-flag-white: #ece6d8;
 }
 
 @theme inline {

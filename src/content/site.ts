@@ -21,6 +21,13 @@ export const site = {
       width: 1500,
       height: 2000,
     } satisfies Imagen,
+    // Retrato de cuerpo entero en el estudio (bloque del Dr. en el Home)
+    fotoEstudio: {
+      src: "/images/dr-colavita-estudio.jpeg",
+      alt: "Dr. Francisco Valentín Colavita en su estudio jurídico de La Plata",
+      width: 1024,
+      height: 1536,
+    } satisfies Imagen,
   },
 
   whatsapp: {
@@ -47,6 +54,16 @@ export const site = {
     puntaje: null as number | null, // TODO
     cantidad: null as number | null, // TODO
     url: "https://maps.google.com/", // TODO: link a las reseñas
+  },
+
+  // Créditos que la licencia exige mostrar en el sitio (CC BY-SA). Detalle en docs/creditos-imagenes.md
+  creditoPortada: {
+    obra: "Plaza Moreno y Catedral de La Plata",
+    obraUrl:
+      "https://commons.wikimedia.org/wiki/File:La_Plata_-_Plaza_Moreno_-_20061207a.jpg",
+    autor: "Barcex",
+    licencia: "CC BY-SA 2.5",
+    licenciaUrl: "https://creativecommons.org/licenses/by-sa/2.5/",
   },
 
   logo: {

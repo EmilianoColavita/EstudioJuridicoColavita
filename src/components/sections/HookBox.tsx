@@ -37,7 +37,7 @@ export function HookBox({ seccion, id }: SeccionProps<"hook">) {
                     strokeWidth={1.25}
                     aria-hidden="true"
                   />
-                  <h3 className="font-semibold">{item.titulo}</h3>
+                  <h3 className="font-serif text-lg">{item.titulo}</h3>
                   <p className="text-muted">{item.texto}</p>
                 </li>
               );
