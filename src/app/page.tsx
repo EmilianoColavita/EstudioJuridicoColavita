@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { AreasBands } from "@/components/sections/AreasBands";
+import { CoverageMap } from "@/components/sections/CoverageMap";
 import { LawyerBlock } from "@/components/sections/LawyerBlock";
 import { Container } from "@/components/ui/Container";
 import { GoldDivider } from "@/components/ui/GoldDivider";
@@ -43,14 +44,15 @@ export default function Home() {
 
         <Container className="flex min-h-[32rem] flex-col justify-center py-16 sm:min-h-[36rem] lg:py-24">
           <div className="flex flex-col gap-6 xl:max-w-[32rem] 2xl:max-w-3xl">
-            <h1 className="font-serif text-4xl leading-tight text-balance sm:text-5xl 2xl:text-6xl">
+            {/* Animación de entrada solo con CSS (ver .hero-* en globals.css) */}
+            <h1 className="hero-barrido font-serif text-4xl leading-tight text-balance sm:text-5xl 2xl:text-6xl">
               {site.nombre}
             </h1>
-            <GoldDivider />
-            <p className="max-w-2xl text-lg leading-relaxed text-white/85">
+            <GoldDivider className="hero-linea [--retraso:700ms]" />
+            <p className="hero-entrada max-w-2xl text-lg leading-relaxed text-white/85 [--retraso:800ms]">
               {home.hero.texto}
             </p>
-            <div className="pt-2">
+            <div className="hero-entrada pt-2 [--retraso:1000ms]">
               <WhatsAppButton
                 mensaje={site.whatsapp.mensajeGenerico}
                 area="general"
@@ -70,6 +72,7 @@ export default function Home() {
         ctaTexto={home.servicios.ctaTexto}
         items={home.servicios.items}
       />
+      <CoverageMap id="cobertura" contenido={home.cobertura} />
       <LawyerBlock id="dr-colavita" contenido={home.drColavita} />
       <WhatsAppFloating
         mensaje={site.whatsapp.mensajeGenerico}

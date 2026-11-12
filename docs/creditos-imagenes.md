@@ -7,6 +7,7 @@
 | `public/images/areas/derecho-civil-y-comercial.jpg` | Banda "Civil y Comercial" del Home | Sasun Bughdaryan — [Unsplash](https://unsplash.com/photos/wooden-gavel-resting-on-a-dark-surface-next-to-book-FaTLrG5-ViE) — Unsplash License |
 | `public/images/areas/derecho-laboral.jpg` | Banda "Laboral" del Home | Jimmy Nilsson Masth — [Unsplash](https://unsplash.com/photos/a-man-wearing-a-helmet-and-goggles-sZdlS32KvNI) — Unsplash License |
 | `public/images/areas/banderas-italia-espana-ia.jpg` | Banda "Ciudadanía" del Home (banderas de España e Italia) | Imagen generada con IA por Emiliano (original `Banderas de Italia y España ondeando juntas.png`). Sin derechos de terceros. |
+| `public/images/fondo-edificio-tribunales.jpg` | Fondo de la sección "Atendemos en todo el país" | Imagen generada con IA por Emiliano. Sin derechos de terceros. |
 
 ## Atribución obligatoria en el sitio
 

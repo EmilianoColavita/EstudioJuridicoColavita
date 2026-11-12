@@ -6,7 +6,24 @@ import type { Imagen } from "./site";
 // - Hero: versión abreviada del brief, acordada con Emiliano.
 // - Servicios: textos del mockup de tarjetas que pasó Emiliano (reemplazan a los del brief).
 // - Dr. Colavita: textual del brief, sección 6 "Quiénes somos / Sobre el titular".
+// - Cobertura: textos del mockup de Emiliano; antetítulo y texto basados en "Cobertura nacional" del brief.
 export const home = {
+  cobertura: {
+    antetitulo: "Cobertura nacional",
+    titulo: "Atendemos en todo el país",
+    texto:
+      "Desde nuestro estudio en La Plata brindamos asesoramiento legal especializado en todo el país.",
+    lema: "Acompañamos a nuestros clientes en toda Argentina",
+    sedeTexto: "La Plata",
+    // Imagen generada con IA por Emiliano
+    fondo: {
+      src: "/images/fondo-edificio-tribunales.jpg",
+      alt: "",
+      width: 2048,
+      height: 768,
+    },
+  },
+
   drColavita: {
     antetitulo: "Liderazgo Jurídico, Estrategia y Compromiso en La Plata",
     parrafos: [
