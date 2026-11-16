@@ -1,47 +1,59 @@
 import Image from "next/image";
 import { CircleCheck } from "lucide-react";
 import { GoogleReviewsBadge } from "@/components/trust/GoogleReviewsBadge";
-import { LawyerCard } from "@/components/trust/LawyerCard";
 import { Container } from "@/components/ui/Container";
+import { GoldDivider } from "@/components/ui/GoldDivider";
 import { WhatsAppButton } from "@/components/whatsapp/WhatsAppButton";
+import { retraso } from "@/lib/animaciones";
 import type { SeccionProps } from "./types";
 
+/*
+  Hero de las landings, con el mismo lenguaje que el Home:
+  foto de fondo atenuada que arranca borrosa (.hero-fondo), título que se escribe de izquierda
+  a derecha (.hero-barrido) y el resto entrando en cascada. Todo CSS: no espera a JS.
+*/
 export function Hero({ seccion, area }: SeccionProps<"hero">) {
   return (
-    <section className="relative isolate overflow-hidden bg-navy text-white">
-      {seccion.imagenFondo ? (
-        <Image
-          src={seccion.imagenFondo.src}
-          alt=""
-          fill
-          sizes="100vw"
-          loading="eager"
-          fetchPriority="high"
-          className="-z-20 object-cover opacity-25"
-        />
-      ) : (
-        // TODO: reemplazar por la foto de la Catedral de La Plata (licencia libre, ver docs/creditos-imagenes.md)
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 -z-20 bg-[radial-gradient(ellipse_at_top_right,var(--color-navy-soft),transparent_60%)]"
-        />
+    <section className="relative isolate overflow-hidden border-b border-gold/40 bg-navy text-white">
+      {seccion.imagenFondo && (
+        <div aria-hidden="true" className="hero-fondo absolute inset-0 -z-20">
+          <Image
+            src={seccion.imagenFondo.src}
+            alt=""
+            fill
+            priority
+            quality={85}
+            sizes="100vw"
+            className="object-cover object-[75%_center]"
+          />
+        </div>
       )}
-      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-navy/70" />
+      {/* Velo navy: oscuro detrás del texto (izquierda) y más suave a la derecha, donde se ve el choque */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 bg-navy/75 lg:bg-transparent lg:bg-linear-to-r lg:from-navy lg:from-25% lg:via-navy/70 lg:via-50% lg:to-navy/25"
+      />
 
-      <Container className="grid items-center gap-12 py-10 sm:py-16 lg:grid-cols-[1fr_400px] lg:py-24">
-        <div className="flex flex-col gap-6">
-          <div className="lg:hidden">
-            <LawyerCard variant="compact" />
-          </div>
-
-          <h1 className="font-serif text-3xl leading-tight text-balance sm:text-5xl">
+      <Container className="py-12 sm:py-16 lg:py-20">
+        <div className="flex max-w-3xl flex-col gap-6">
+          <h1 className="hero-barrido font-serif text-3xl leading-tight text-balance sm:text-5xl">
             {seccion.titulo}
           </h1>
-          <p className="max-w-2xl text-lg text-white/85">{seccion.subtitulo}</p>
+          <GoldDivider className="hero-linea" style={retraso(700)} />
+          <p
+            className="hero-entrada max-w-2xl text-lg leading-relaxed text-white/85"
+            style={retraso(800)}
+          >
+            {seccion.subtitulo}
+          </p>
 
           <ul className="flex flex-col gap-3">
-            {seccion.beneficios.map((b) => (
-              <li key={b.titulo} className="flex gap-3">
+            {seccion.beneficios.map((b, i) => (
+              <li
+                key={b.titulo}
+                className="hero-entrada flex gap-3"
+                style={retraso(950 + i * 120)}
+              >
                 <CircleCheck
                   className="mt-0.5 size-5 shrink-0 text-gold"
                   strokeWidth={1.5}
@@ -57,7 +69,10 @@ export function Hero({ seccion, area }: SeccionProps<"hero">) {
             ))}
           </ul>
 
-          <div className="flex flex-col items-start gap-4 pt-2">
+          <div
+            className="hero-entrada flex flex-col items-start gap-4 pt-2"
+            style={retraso(1250)}
+          >
             <WhatsAppButton
               mensaje={area.whatsappMensaje}
               area={area.slug}
@@ -68,10 +83,6 @@ export function Hero({ seccion, area }: SeccionProps<"hero">) {
             </WhatsAppButton>
             <GoogleReviewsBadge />
           </div>
-        </div>
-
-        <div className="hidden pb-6 lg:block">
-          <LawyerCard />
         </div>
       </Container>
     </section>

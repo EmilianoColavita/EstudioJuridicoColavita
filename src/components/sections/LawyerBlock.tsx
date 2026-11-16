@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
-import { ArrowRight, Scale } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
+import { FondoLuz } from "@/components/ui/FondoLuz";
 import { site } from "@/content/site";
 import { RevealOnView } from "./RevealOnView";
 
@@ -26,14 +27,10 @@ export function LawyerBlock({
   return (
     <section
       aria-labelledby={id}
-      className="relative isolate overflow-hidden bg-navy text-white"
+      className="relative isolate overflow-hidden bg-navy-deep text-white"
     >
-      {/* Balanza de marca de agua, solo decorativa */}
-      <Scale
-        aria-hidden="true"
-        strokeWidth={0.6}
-        className="pointer-events-none absolute top-1/2 -right-24 -z-10 hidden size-[30rem] -translate-y-1/2 text-white/[0.04] lg:block"
-      />
+      {/* Fondo con luz: resplandor cálido detrás de la foto que se apaga hacia la esquina opuesta */}
+      <FondoLuz luz="izquierda" />
 
       <Container>
         {/* Al entrar en pantalla: la foto llega desde la izquierda y los datos aparecen en cascada */}

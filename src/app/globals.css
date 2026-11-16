@@ -4,6 +4,8 @@
 @theme {
   --color-navy: #1a1d2e;
   --color-navy-soft: #2b2f47;
+  /* Navy más profundo para las zonas en sombra de los fondos con luz */
+  --color-navy-deep: #12141f;
   --color-gold: #c5a059;
   /* Brillo del dorado metálico (degradado de los íconos de áreas) */
   --color-gold-light: #ecd7a0;
@@ -155,6 +157,22 @@ body {
   .hero-barrido: el texto aparece de izquierda a derecha con un borde suave (máscara que se corre).
   .hero-entrada: aparece desde la izquierda. --retraso escalona.
 */
+/* Foto del hero: arranca borrosa y algo oscura, y se aclara al ritmo del título */
+.hero-fondo {
+  animation: hero-desenfoque 1.6s cubic-bezier(0.3, 0, 0.2, 1) 150ms backwards;
+}
+
+@keyframes hero-desenfoque {
+  from {
+    filter: blur(16px) brightness(0.7);
+    transform: scale(1.06);
+  }
+  to {
+    filter: none;
+    transform: none;
+  }
+}
+
 .hero-barrido {
   mask-image: linear-gradient(90deg, black 45%, transparent 55%);
   mask-size: 250% 100%;
@@ -166,6 +184,11 @@ body {
 
 .hero-entrada {
   animation: revelar-izq 1s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+  animation-delay: var(--retraso, 0ms);
+}
+
+.hero-entrada-der {
+  animation: revelar-der 1s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
   animation-delay: var(--retraso, 0ms);
 }
 
@@ -238,8 +261,10 @@ body {
   [data-revelar="visible"] .revelar-izq,
   [data-revelar="visible"] .revelar-der,
   [data-revelar="visible"] .revelar-foto,
+  .hero-fondo,
   .hero-barrido,
   .hero-entrada,
+  .hero-entrada-der,
   .hero-linea {
     animation: none;
   }

@@ -1,49 +1,68 @@
 import { CircleCheck } from "lucide-react";
 import { Container } from "@/components/ui/Container";
+import { FondoLuz } from "@/components/ui/FondoLuz";
 import { GoldDivider } from "@/components/ui/GoldDivider";
+import { retraso } from "@/lib/animaciones";
 import { RichText } from "@/lib/rich-text";
+import { RevealOnView } from "./RevealOnView";
 import type { SeccionProps } from "./types";
 
+// Gancho destacado (ej. "Si vos no cobrás, nosotros no cobramos"): panel con borde dorado sobre fondo con luz.
 export function HookBox({ seccion, id }: SeccionProps<"hook">) {
   return (
-    <section aria-labelledby={id} className="bg-cream py-16 sm:py-20">
+    <section
+      aria-labelledby={id}
+      className="relative isolate overflow-hidden border-t border-white/10 py-16 text-white sm:py-24"
+    >
+      <FondoLuz luz="centro" />
       <Container>
-        <div className="mx-auto max-w-4xl rounded-2xl border-l-4 border-gold bg-pearl p-6 sm:p-12">
+        <RevealOnView className="mx-auto max-w-5xl rounded-3xl border border-gold/40 bg-navy/50 px-6 py-10 text-center sm:px-14 sm:py-14">
           <h2
             id={id}
-            className="font-serif text-3xl leading-tight text-balance sm:text-4xl"
+            className="revelar font-serif text-3xl leading-tight text-balance sm:text-5xl"
           >
-            {seccion.emoji && (
-              <span aria-hidden="true" className="mr-2">
-                {seccion.emoji}
-              </span>
-            )}
             {seccion.titulo}
           </h2>
-          <GoldDivider className="my-6" />
+          <GoldDivider
+            className="revelar-linea mx-auto my-7"
+            style={retraso(250)}
+          />
           {seccion.intro && (
-            <p className="text-lg">
+            <p
+              className="revelar mx-auto max-w-2xl text-lg leading-relaxed text-white/80 [&_strong]:text-gold"
+              style={retraso(350)}
+            >
               <RichText text={seccion.intro} />
             </p>
           )}
 
-          <ul className="mt-8 grid gap-6 md:grid-cols-3">
-            {seccion.items.map((item) => {
+          <ul className="mt-12 grid gap-8 md:grid-cols-3 md:gap-6">
+            {seccion.items.map((item, i) => {
               const Icono = item.icono ?? CircleCheck;
               return (
-                <li key={item.titulo} className="flex flex-col gap-2">
-                  <Icono
-                    className="size-7 text-gold-deep"
-                    strokeWidth={1.25}
-                    aria-hidden="true"
-                  />
-                  <h3 className="font-serif text-lg">{item.titulo}</h3>
-                  <p className="text-muted">{item.texto}</p>
+                <li
+                  key={item.titulo}
+                  className="revelar flex flex-col items-center gap-3"
+                  style={retraso(500 + i * 150)}
+                >
+                  <span className="flex size-16 items-center justify-center rounded-full border border-gold/50 bg-gold/10">
+                    <Icono
+                      className="size-7 text-gold"
+                      strokeWidth={1.25}
+                      aria-hidden="true"
+                    />
+                  </span>
+                  <h3 className="font-serif text-xl text-balance">
+                    {item.titulo}
+                  </h3>
+                  <p className="max-w-xs leading-relaxed text-white/70">
+                    {item.texto}
+                  </p>
                 </li>
               );
             })}
           </ul>
-        </div>
+        </RevealOnView>
       </Container>
     </section>
   );

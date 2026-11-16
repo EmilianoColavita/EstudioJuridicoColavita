@@ -15,11 +15,13 @@ export const site = {
     nombre: "Dr. Francisco Valentín Colavita",
     matricula: "T° 68 F° 135 CALP",
     titulos: "Abogado y Lic. en Comunicación Social (UNLP)",
-    foto: {
-      src: "/images/dr-colavita-presentando.jpg",
-      alt: "Dr. Francisco Valentín Colavita, abogado del Estudio Jurídico Colavita",
-      width: 1500,
-      height: 2000,
+    // Retrato recortado (WebP con transparencia): el Dr. señalando, en el muro de autoridad de las landings.
+    // Generado con IA por Emiliano; el fondo damero se quitó con scripts/quitar-damero.mjs
+    retrato: {
+      src: "/images/dr-colavita-retrato.webp",
+      alt: "Dr. Francisco Valentín Colavita, abogado, señalando con ambas manos",
+      width: 1254,
+      height: 1600,
     } satisfies Imagen,
     // Retrato de cuerpo entero en el estudio (bloque del Dr. en el Home)
     fotoEstudio: {

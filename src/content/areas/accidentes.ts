@@ -54,7 +54,13 @@ export const accidentes: Area = {
         },
       ],
       ctaTexto: cta,
-      // TODO: imagenFondo con la Catedral de La Plata (licencia libre)
+      // Choque urbano (imagen generada con IA por Emiliano)
+      imagenFondo: {
+        src: "/images/fondo-choque-urbano.jpg",
+        alt: "",
+        width: 1672,
+        height: 941,
+      },
     },
     {
       tipo: "featureGrid",
@@ -66,34 +72,70 @@ export const accidentes: Area = {
           texto:
             "Asesoramiento y reclamos especializados en accidentes de motocicleta.",
           icono: Motorbike,
+          imagen: {
+            src: "/images/especialidades/motos.jpg",
+            alt: "Motociclista circulando por una calle de la ciudad",
+            width: 1000,
+            height: 750,
+          },
         },
         {
           titulo: "Autos",
           texto: "Indemnización integral por choques y daños en automóviles.",
           icono: Car,
+          imagen: {
+            src: "/images/areas/auto-chocado-ia.jpg",
+            alt: "Auto con el frente dañado tras un choque",
+            width: 1920,
+            height: 1072,
+          },
         },
         {
           titulo: "Peatones",
           texto:
             "Defensa y reclamo de derechos por atropellamientos y lesiones en vía pública.",
           icono: Footprints,
+          imagen: {
+            src: "/images/especialidades/peatones.jpg",
+            alt: "Persona cruzando una senda peatonal vista desde arriba",
+            width: 1000,
+            height: 750,
+          },
         },
         {
           titulo: "Bicicletas",
           texto: "Patrocinio legal para ciclistas ante siniestros de tránsito.",
           icono: Bike,
+          imagen: {
+            src: "/images/especialidades/bicicletas.jpg",
+            alt: "Ciclista circulando por una calle con autos",
+            width: 1000,
+            height: 750,
+          },
         },
         {
           titulo: "Pasajeros / Transporte / Apps (Uber/Cabify)",
           texto:
             "Reclamos por accidentes durante viajes en transporte público o aplicaciones.",
           icono: Bus,
+          imagen: {
+            src: "/images/especialidades/pasajeros.jpg",
+            alt: "Interior de un colectivo de transporte público",
+            width: 1000,
+            height: 750,
+          },
         },
         {
           titulo: "Accidentes Laborales (ART)",
           texto:
             "Cobertura e indemnizaciones por incapacidad y accidentes in itinere o en el lugar de trabajo.",
           icono: HardHat,
+          imagen: {
+            src: "/images/areas/derecho-laboral.jpg",
+            alt: "Trabajador con casco en una obra en construcción",
+            width: 1600,
+            height: 1067,
+          },
         },
       ],
       ctaTexto: cta,
@@ -159,7 +201,7 @@ export const accidentes: Area = {
         "Mercantil Andina",
       ],
       imagenLogos: {
-        src: "/images/logos-aseguradoras.jpg",
+        src: "/images/logos-aseguradoras-claro.png",
         alt: "Logos de aseguradoras: La Caja (Generali), Sancor Seguros, Federación Patronal, San Cristóbal, Rivadavia y Mercantil Andina",
         width: 1400,
         height: 910,

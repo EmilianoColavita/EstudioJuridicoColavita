@@ -8,7 +8,7 @@ import { WhatsAppButton } from "@/components/whatsapp/WhatsAppButton";
 import { WhatsAppFloating } from "@/components/whatsapp/WhatsAppFloating";
 import { home } from "@/content/home";
 import { site } from "@/content/site";
-import fondoCatedral from "../../public/images/background-catedral.png";
+import fondoCatedral from "../../public/images/background-catedral.jpg";
 
 // TODO paso 5: falta Instagram y últimas publicaciones
 export default function Home() {
@@ -21,9 +21,10 @@ export default function Home() {
           - Escritorio (xl+): la foto arranca más a la derecha y se ancla a la derecha,
             así la Catedral queda siempre a la derecha del texto y nunca debajo.
         */}
+        {/* .hero-fondo: arranca borrosa y se aclara mientras se escribe el título (ver globals.css) */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 -z-20 xl:left-[18%]"
+          className="hero-fondo absolute inset-0 -z-20 xl:left-[18%]"
         >
           <Image
             src={fondoCatedral}

@@ -3,7 +3,13 @@ import { Briefcase, Car, Globe, Landmark } from "lucide-react";
 import type { Imagen } from "../site";
 import { accidentes } from "./accidentes";
 
-export type Item = { titulo: string; texto: string; icono?: LucideIcon };
+// imagen: foto de fondo opcional de la tarjeta (si no hay, se muestra el ícono)
+export type Item = {
+  titulo: string;
+  texto: string;
+  icono?: LucideIcon;
+  imagen?: Imagen;
+};
 
 // Cada landing es una lista de secciones; [area]/page.tsx renderiza el componente según `tipo`.
 export type Seccion =
