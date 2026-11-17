@@ -59,7 +59,7 @@ export const home = {
         subtitulo: "Abogado de Accidentes de Tránsito en La Plata",
         texto: "Reclamos contra aseguradoras e indemnización por siniestros.",
         imagen: {
-          src: "/images/areas/auto-chocado-ia.jpg",
+          src: "/images/areas/auto-chocado-ia-oscura.jpg",
           alt: "Auto con el frente dañado tras un choque en la calle",
           width: 1920,
           height: 1072,

@@ -7,6 +7,7 @@ import { GoldDivider } from "@/components/ui/GoldDivider";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import type { AreaSlug } from "@/content/areas";
 import type { Imagen } from "@/content/site";
+import { retraso } from "@/lib/animaciones";
 import { RevealOnView } from "./RevealOnView";
 
 type ItemArea = {
@@ -24,20 +25,28 @@ type ItemArea = {
   alternando lados. Todas las bandas tienen la misma altura y estructura (igual peso visual, pedido del brief).
   Lado del texto en navy con texto blanco; la foto lleva un velo navy para unificar el tono con la paleta.
   Sin foto cargada, el lado de la imagen muestra el ícono dorado del área.
+  Se usa en el Home ("Nuestros servicios") y al pie de cada landing ("Otras áreas", vía OtherAreas).
 */
 export function AreasBands({
   id,
   titulo,
+  intro,
   ctaTexto,
   items,
+  className = "",
 }: {
   id: string;
   titulo: string;
+  intro?: string;
   ctaTexto: string;
   items: ItemArea[];
+  className?: string;
 }) {
   return (
-    <section aria-labelledby={id} className="bg-navy pt-16 text-white sm:pt-20">
+    <section
+      aria-labelledby={id}
+      className={`bg-navy pt-16 text-white sm:pt-20 ${className}`}
+    >
       <AreaIconDefs />
       <Container>
         <RevealOnView>
@@ -46,6 +55,14 @@ export function AreasBands({
               {titulo}
             </SectionTitle>
           </div>
+          {intro && (
+            <p
+              className="revelar mx-auto -mt-2 mb-12 max-w-3xl text-center text-lg leading-relaxed text-white/75"
+              style={retraso(200)}
+            >
+              {intro}
+            </p>
+          )}
         </RevealOnView>
       </Container>
 
@@ -73,17 +90,17 @@ export function AreasBands({
                         alt={item.imagen.alt}
                         fill
                         sizes="(min-width: 1024px) 55vw, 100vw"
-                        className="revelar-foto object-cover saturate-[0.8]"
+                        className="revelar-foto object-cover brightness-110 saturate-[0.9]"
                         style={{ objectPosition: item.encuadre }}
                       />
                       {/* Velo navy: tiñe la foto de azul */}
                       <div
                         aria-hidden="true"
-                        className="absolute inset-0 bg-navy/45 mix-blend-multiply"
+                        className="absolute inset-0 bg-navy/20 mix-blend-multiply"
                       />
                       <div
                         aria-hidden="true"
-                        className="absolute inset-0 bg-navy/15"
+                        className="absolute inset-0 bg-navy/5"
                       />
                     </>
                   ) : (

@@ -23,6 +23,13 @@ export const site = {
       width: 1254,
       height: 1600,
     } satisfies Imagen,
+    // Avatar cuadrado (recorte de la cara de la foto en el estudio), para la firma del cierre de las landings
+    avatar: {
+      src: "/images/dr-colavita-avatar-estudio.webp",
+      alt: "Dr. Francisco Valentín Colavita",
+      width: 400,
+      height: 400,
+    } satisfies Imagen,
     // Retrato de cuerpo entero en el estudio (bloque del Dr. en el Home)
     fotoEstudio: {
       src: "/images/dr-colavita-estudio.jpeg",

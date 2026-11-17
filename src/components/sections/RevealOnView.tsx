@@ -30,14 +30,20 @@ export function RevealOnView({
     }
 
     el.dataset.revelar = "esperando";
+    /*
+      Se dispara apenas el borde del bloque entra en el 85% superior de la pantalla.
+      No usar un umbral por porcentaje del bloque: en celular un bloque alto (tarjetas apiladas)
+      nunca llega a verse en un 35% a la vez y quedaba invisible para siempre.
+      Si el bloque ya quedó arriba (se entró a mitad de página o con un link), se muestra directo.
+    */
     const observer = new IntersectionObserver(
       ([entrada]) => {
-        if (entrada.isIntersecting) {
+        if (entrada.isIntersecting || entrada.boundingClientRect.bottom < 0) {
           el.dataset.revelar = "visible";
           observer.disconnect();
         }
       },
-      { threshold: 0.35 },
+      { threshold: 0, rootMargin: "0px 0px -15% 0px" },
     );
     observer.observe(el);
     return () => observer.disconnect();

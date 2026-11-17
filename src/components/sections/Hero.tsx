@@ -24,14 +24,18 @@ export function Hero({ seccion, area }: SeccionProps<"hero">) {
             priority
             quality={85}
             sizes="100vw"
-            className="object-cover object-[75%_center]"
+            className={`object-cover object-[75%_center] ${seccion.veloFuerte ? "saturate-50" : "brightness-110"}`}
           />
         </div>
       )}
       {/* Velo navy: oscuro detrás del texto (izquierda) y más suave a la derecha, donde se ve el choque */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-navy/75 lg:bg-transparent lg:bg-linear-to-r lg:from-navy lg:from-25% lg:via-navy/70 lg:via-50% lg:to-navy/25"
+        className={`absolute inset-0 -z-10 lg:bg-transparent lg:bg-linear-to-r ${
+          seccion.veloFuerte
+            ? "bg-navy/75 lg:from-navy lg:from-30% lg:via-navy/80 lg:via-60% lg:to-navy/35"
+            : "bg-navy/60 lg:from-navy/95 lg:from-20% lg:via-navy/55 lg:via-50% lg:to-navy/5"
+        }`}
       />
 
       <Container className="py-12 sm:py-16 lg:py-20">

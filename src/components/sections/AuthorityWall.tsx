@@ -24,7 +24,7 @@ export function AuthorityWall({ seccion, id }: SeccionProps<"authorityWall">) {
           sizes="100vw"
           className="object-cover object-right"
         />
-        <div className="absolute inset-0 bg-navy/80" />
+        <div className="absolute inset-0 bg-navy/65" />
         <div className="absolute inset-0 bg-linear-to-b from-navy via-transparent to-navy" />
       </div>
 

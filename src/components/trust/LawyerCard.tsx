@@ -7,34 +7,36 @@ const { abogado } = site;
   Retrato del Dr. (WebP recortado con transparencia).
   - "full": solo la persona, señalando hacia la izquierda (en las landings, hacia los logos de aseguradoras
     del muro de autoridad). La base se desvanece y ahí van el nombre y la matrícula.
-  - "compact": avatar redondo con nombre y matrícula (hero de las landings).
+  - "firma": avatar redondo con borde dorado + nombre, títulos y matrícula (cierre de las landings).
 */
 export function LawyerCard({
   variant = "full",
 }: {
-  variant?: "full" | "compact";
+  variant?: "full" | "firma";
 }) {
   const { retrato } = abogado;
 
-  if (variant === "compact") {
+  if (variant === "firma") {
     return (
-      <div className="flex items-center gap-3">
-        <span className="relative size-14 shrink-0 overflow-hidden rounded-full border-2 border-gold bg-navy-soft">
+      <div className="flex items-center gap-4 text-left sm:gap-5">
+        <span className="relative size-20 shrink-0 overflow-hidden rounded-full border-2 border-gold bg-navy-soft ring-4 ring-gold/15 sm:size-24">
           <Image
-            src={retrato.src}
-            alt={retrato.alt}
+            src={abogado.avatar.src}
+            alt={abogado.avatar.alt}
             fill
-            sizes="56px"
-            loading="eager"
-            className="origin-[78%_14%] scale-[2.6] object-cover object-[78%_10%]"
+            sizes="96px"
+            quality={90}
+            className="object-cover"
           />
         </span>
-        <p className="text-sm leading-snug text-white/90">
-          <span className="font-serif text-base text-white">
+        <p className="flex flex-col gap-0.5">
+          <span className="font-serif text-xl text-white sm:text-2xl">
             {abogado.nombre}
           </span>
-          <br />
-          Abogado · <span className="text-gold">{abogado.matricula}</span>
+          <span className="text-sm text-white/75">{abogado.titulos}</span>
+          <span className="font-serif text-sm text-gold italic">
+            {abogado.matricula}
+          </span>
         </p>
       </div>
     );

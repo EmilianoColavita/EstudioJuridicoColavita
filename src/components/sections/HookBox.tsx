@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { CircleCheck } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { FondoLuz } from "@/components/ui/FondoLuz";
@@ -7,16 +8,39 @@ import { RichText } from "@/lib/rich-text";
 import { RevealOnView } from "./RevealOnView";
 import type { SeccionProps } from "./types";
 
-// Gancho destacado (ej. "Si vos no cobrás, nosotros no cobramos"): panel con borde dorado sobre fondo con luz.
+/*
+  Gancho destacado (ej. "Si vos no cobrás, nosotros no cobramos"): panel con borde dorado.
+  Fondo: foto desenfocada con velo navy si la sección trae imagenFondo; si no, fondo con luz.
+*/
 export function HookBox({ seccion, id }: SeccionProps<"hook">) {
   return (
     <section
       aria-labelledby={id}
-      className="relative isolate overflow-hidden border-t border-white/10 py-16 text-white sm:py-24"
+      className={`relative isolate overflow-hidden border-t border-white/10 text-white ${seccion.imagenFondo ? "py-20 sm:py-32" : "py-16 sm:py-24"}`}
     >
-      <FondoLuz luz="centro" />
+      {seccion.imagenFondo ? (
+        <div aria-hidden="true" className="absolute inset-0 -z-10">
+          <Image
+            src={seccion.imagenFondo.src}
+            alt=""
+            fill
+            sizes="100vw"
+            quality={75}
+            // Desenfoque "medio": se reconoce la imagen pero no compite con el panel
+            className="scale-110 object-cover blur-[5px]"
+          />
+          <div className="absolute inset-0 bg-navy/25" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_45%,color-mix(in_srgb,var(--color-navy)_70%,transparent)_100%)]" />
+        </div>
+      ) : (
+        <FondoLuz luz="centro" />
+      )}
       <Container>
-        <RevealOnView className="mx-auto max-w-5xl rounded-3xl border border-gold/40 bg-navy/50 px-6 py-10 text-center sm:px-14 sm:py-14">
+        <RevealOnView
+          className={`mx-auto max-w-5xl rounded-3xl border border-gold/40 px-6 py-10 text-center sm:px-14 sm:py-14 ${
+            seccion.imagenFondo ? "bg-navy/85 backdrop-blur-sm" : "bg-navy/50"
+          }`}
+        >
           <h2
             id={id}
             className="revelar font-serif text-3xl leading-tight text-balance sm:text-5xl"

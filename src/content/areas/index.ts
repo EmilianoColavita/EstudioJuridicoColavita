@@ -2,6 +2,9 @@ import type { LucideIcon } from "lucide-react";
 import { Briefcase, Car, Globe, Landmark } from "lucide-react";
 import type { Imagen } from "../site";
 import { accidentes } from "./accidentes";
+import { ciudadanias } from "./ciudadanias";
+import { civil } from "./civil";
+import { laboral } from "./laboral";
 
 // imagen: foto de fondo opcional de la tarjeta (si no hay, se muestra el ícono)
 export type Item = {
@@ -20,6 +23,8 @@ export type Seccion =
       beneficios: Item[];
       ctaTexto: string;
       imagenFondo?: Imagen;
+      /** Fondo cargado (ej. biblioteca): velo más fuerte y colores apagados para que el texto se lea */
+      veloFuerte?: boolean;
     }
   | {
       tipo: "featureGrid";
@@ -27,6 +32,8 @@ export type Seccion =
       emoji?: string;
       items: Item[];
       ctaTexto?: string;
+      /** Fotos de las tarjetas un poco más oscuras (disimula fotos de menor calidad) */
+      atenuarImagenes?: boolean;
     }
   | {
       tipo: "hook";
@@ -34,6 +41,8 @@ export type Seccion =
       emoji?: string;
       intro?: string;
       items: Item[];
+      /** Foto de fondo opcional: se muestra desenfocada detrás del panel (si no hay, fondo con luz) */
+      imagenFondo?: Imagen;
     }
   | {
       tipo: "authorityWall";
@@ -99,8 +108,7 @@ export const areasMenu = [
 
 export type AreaSlug = (typeof areasMenu)[number]["slug"];
 
-// TODO paso 4: sumar laboral, civil y ciudadanías
-export const areas: Area[] = [accidentes];
+export const areas: Area[] = [accidentes, laboral, civil, ciudadanias];
 
 export function getArea(slug: string) {
   return areas.find((a) => a.slug === slug);

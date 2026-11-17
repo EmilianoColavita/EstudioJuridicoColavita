@@ -17,6 +17,7 @@ export function FeatureGrid({
   area,
   id,
 }: SeccionProps<"featureGrid">) {
+  const dosColumnas = seccion.items.length === 4;
   return (
     <section
       aria-labelledby={id}
@@ -30,13 +31,16 @@ export function FeatureGrid({
             </SectionTitle>
           </div>
 
-          <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {/* 4 tarjetas: 2×2 (en 3 columnas quedaría una sola abajo); el resto, 3 columnas */}
+          <ul
+            className={`grid gap-5 sm:grid-cols-2 ${dosColumnas ? "" : "lg:grid-cols-3"}`}
+          >
             {seccion.items.map((item, i) => {
               const Icono = item.icono ?? CircleCheck;
               return (
                 <li
                   key={item.titulo}
-                  className="revelar group relative isolate flex min-h-72 flex-col justify-end gap-3 overflow-hidden rounded-2xl border border-gold/40 bg-navy-soft/30 p-7 transition-colors hover:border-gold"
+                  className="revelar group relative isolate flex min-h-84 flex-col overflow-hidden rounded-2xl border border-gold/40 bg-navy-soft/30 p-7 transition-colors hover:border-gold"
                   style={retraso(150 + i * 100)}
                 >
                   {item.imagen ? (
@@ -45,15 +49,27 @@ export function FeatureGrid({
                         src={item.imagen.src}
                         alt=""
                         fill
-                        sizes="(min-width: 1024px) 384px, (min-width: 640px) 50vw, 100vw"
-                        className="object-cover saturate-[0.75] transition-transform duration-700 ease-out group-hover:scale-105"
+                        quality={85}
+                        // Ancho real de la tarjeta según las columnas (si se subestima, la foto se pixela)
+                        sizes={
+                          dosColumnas
+                            ? "(min-width: 1024px) 560px, (min-width: 640px) 50vw, 100vw"
+                            : "(min-width: 1024px) 384px, (min-width: 640px) 50vw, 100vw"
+                        }
+                        className={`object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${
+                          seccion.atenuarImagenes
+                            ? "brightness-95 saturate-[0.85]"
+                            : "brightness-110 saturate-[0.9]"
+                        }`}
                       />
                       {/* Tono navy parejo + degradado abajo para que el texto se lea */}
-                      <div className="absolute inset-0 bg-navy/45 mix-blend-multiply" />
-                      <div className="absolute inset-0 bg-linear-to-t from-navy via-navy/75 to-navy/10" />
+                      <div
+                        className={`absolute inset-0 mix-blend-multiply ${seccion.atenuarImagenes ? "bg-navy/35" : "bg-navy/20"}`}
+                      />
+                      <div className="absolute inset-0 bg-linear-to-t from-navy via-navy/55 via-45% to-transparent" />
                     </div>
                   ) : (
-                    <span className="mb-auto flex size-14 items-center justify-center rounded-full border border-gold/40 bg-gold/5">
+                    <span className="flex size-14 items-center justify-center rounded-full border border-gold/40 bg-gold/5">
                       <Icono
                         className="size-7 text-gold"
                         strokeWidth={1.25}
@@ -62,14 +78,22 @@ export function FeatureGrid({
                     </span>
                   )}
 
-                  <span
-                    aria-hidden="true"
-                    className="block h-px w-10 bg-gold transition-all duration-500 group-hover:w-16"
-                  />
-                  <h3 className="font-serif text-2xl leading-tight text-balance">
-                    {item.titulo}
-                  </h3>
-                  <p className="leading-relaxed text-white/80">{item.texto}</p>
+                  {/*
+                    Bloque de texto de alto fijo y alineado arriba: en cada fila, la línea, el título y la
+                    descripción arrancan a la misma altura aunque los textos tengan largos distintos.
+                  */}
+                  <div className="mt-auto flex min-h-52 flex-col gap-3 pt-6">
+                    <span
+                      aria-hidden="true"
+                      className="block h-px w-10 bg-gold transition-all duration-500 group-hover:w-16"
+                    />
+                    <h3 className="font-serif text-2xl leading-tight text-balance">
+                      {item.titulo}
+                    </h3>
+                    <p className="leading-relaxed text-white/80">
+                      {item.texto}
+                    </p>
+                  </div>
                 </li>
               );
             })}

@@ -75,8 +75,8 @@ export const accidentes: Area = {
           imagen: {
             src: "/images/especialidades/motos.jpg",
             alt: "Motociclista circulando por una calle de la ciudad",
-            width: 1000,
-            height: 750,
+            width: 1200,
+            height: 800,
           },
         },
         {
@@ -84,7 +84,7 @@ export const accidentes: Area = {
           texto: "Indemnización integral por choques y daños en automóviles.",
           icono: Car,
           imagen: {
-            src: "/images/areas/auto-chocado-ia.jpg",
+            src: "/images/areas/auto-chocado-ia-oscura.jpg",
             alt: "Auto con el frente dañado tras un choque",
             width: 1920,
             height: 1072,
@@ -98,8 +98,8 @@ export const accidentes: Area = {
           imagen: {
             src: "/images/especialidades/peatones.jpg",
             alt: "Persona cruzando una senda peatonal vista desde arriba",
-            width: 1000,
-            height: 750,
+            width: 1200,
+            height: 800,
           },
         },
         {
@@ -109,8 +109,8 @@ export const accidentes: Area = {
           imagen: {
             src: "/images/especialidades/bicicletas.jpg",
             alt: "Ciclista circulando por una calle con autos",
-            width: 1000,
-            height: 750,
+            width: 1200,
+            height: 800,
           },
         },
         {
@@ -121,8 +121,8 @@ export const accidentes: Area = {
           imagen: {
             src: "/images/especialidades/pasajeros.jpg",
             alt: "Interior de un colectivo de transporte público",
-            width: 1000,
-            height: 750,
+            width: 1200,
+            height: 1050,
           },
         },
         {
