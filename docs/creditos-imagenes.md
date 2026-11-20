@@ -32,6 +32,7 @@
 | `public/images/ciudadanias/rectificaciones.jpg` | Tarjeta "Rectificaciones" (Ciudadanías) | Joanna Kosinska — [Unsplash](https://unsplash.com/photos/B6yDtYs2IgY) — Unsplash License |
 | `public/images/ciudadanias/apostillados.jpg` | Tarjeta "Traducciones y apostillados" (Ciudadanías) | RC.XYZ NFT gallery — [Unsplash](https://unsplash.com/photos/oathFTcFigc) — Unsplash License |
 | `public/images/dr-colavita-pasaporte.webp` | El Dr. con pasaporte italiano, en el cierre de Ciudadanías | Imagen generada con IA por Emiliano a partir de una foto del Dr.; fondo quitado con `scripts/quitar-damero.mjs` (zona protegida en la camisa). |
+| `public/images/areas/ia-derecho-digital.jpg` | Tarjeta "Inteligencia Artificial y Derecho Digital" (Quiénes somos) | Numan Ali — [Unsplash](https://unsplash.com/photos/llNtovr7ctk) — Unsplash License |
 | `public/images/dr-colavita-avatar-estudio.webp` | Avatar del Dr. en el cierre de las landings | Recorte de `dr-colavita-estudio.jpeg`. |
 
 ## Atribución obligatoria en el sitio

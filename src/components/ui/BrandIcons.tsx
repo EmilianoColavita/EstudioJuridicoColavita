@@ -54,3 +54,20 @@ export function GoogleIcon({ className = "size-5" }: Props) {
     </svg>
   );
 }
+
+export function FacebookIcon({ className = "size-5" }: Props) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className={className}
+    >
+      <path d="M15.5 3.5h-2.25A3.75 3.75 0 0 0 9.5 7.25V10H7v3.25h2.5V21h3.25v-7.75h2.6l.4-3.25h-3V7.6c0-.6.45-1.1 1.05-1.1h1.7z" />
+    </svg>
+  );
+}

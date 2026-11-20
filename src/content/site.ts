@@ -56,6 +56,7 @@ export const site = {
 
   redes: {
     instagram: "https://www.instagram.com/", // TODO: perfil real
+    facebook: "https://www.facebook.com/", // TODO: perfil real
   },
 
   // Valores REALES de Google Maps, cargados a mano. Mientras sean null, el badge no muestra números.

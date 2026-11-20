@@ -176,8 +176,7 @@ export const ciudadanias: Area = {
     // navegación y conversión, con textos del brief (Home y "Otras Áreas de Práctica" de Accidentes).
     {
       tipo: "otherAreas",
-      titulo:
-        "Soluciones legales integrales para proteger tus derechos en todo momento",
+      titulo: "También te asesoramos en",
       // Intro adaptada del brief: "accidentes de tránsito" → "ciudadanías europeas"
       intro:
         "Además de nuestra especialización en ciudadanías europeas, en el Estudio Jurídico Colavita contamos con un equipo multidisciplinario listo para brindarte asesoramiento y representación personalizada en distintas áreas del derecho:",

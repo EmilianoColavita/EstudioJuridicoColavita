@@ -1,5 +1,5 @@
-import { Briefcase, Car, Globe, Laptop, Scale } from "lucide-react";
 import type { AreaSlug } from "./areas";
+import { quienesSomos } from "./quienes-somos";
 import type { Imagen } from "./site";
 
 // Textos del Home.
@@ -24,20 +24,12 @@ export const home = {
     },
   },
 
+  // Bio y especialidades: se editan en quienes-somos.ts (misma fuente que la página Quiénes somos)
   drColavita: {
-    antetitulo: "Liderazgo Jurídico, Estrategia y Compromiso en La Plata",
-    parrafos: [
-      "Nacido y criado en Ayacucho (Provincia de Buenos Aires), el Dr. Francisco Valentín Colavita se formó en la Universidad Nacional de La Plata (UNLP), donde se graduó como Abogado y Licenciado en Comunicación Social. Actualmente combina el ejercicio libre de la profesión al frente del Estudio Jurídico Colavita.",
-      "Más de diez años de trayectoria en comunicación estratégica, medios y entorno digital aplicados a la litigación moderna.",
-    ],
-    especialidadesTitulo: "Especialista en",
-    especialidades: [
-      { texto: "Derecho Civil y Comercial", icono: Scale },
-      { texto: "Siniestros Viales", icono: Car },
-      { texto: "Derecho Laboral", icono: Briefcase },
-      { texto: "Derecho de Extranjería (Ciudadanías)", icono: Globe },
-      { texto: "Inteligencia Artificial y Derecho Digital", icono: Laptop },
-    ],
+    antetitulo: quienesSomos.antetitulo,
+    parrafos: quienesSomos.parrafos,
+    especialidadesTitulo: quienesSomos.especialidadesTitulo,
+    especialidades: quienesSomos.especialidades,
     ctaTexto: "Conocé más sobre el Dr. Colavita",
     ctaHref: "/quienes-somos",
   },

@@ -289,8 +289,7 @@ export const accidentes: Area = {
     {
       tipo: "otherAreas",
       emoji: "⚖️",
-      titulo:
-        "Soluciones legales integrales para proteger tus derechos en todo momento",
+      titulo: "También te asesoramos en",
       intro:
         "Además de nuestra especialización en accidentes de tránsito, en el Estudio Jurídico Colavita contamos con un equipo multidisciplinario listo para brindarte asesoramiento y representación personalizada en distintas áreas del derecho:",
       items: [

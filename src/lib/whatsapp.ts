@@ -1,7 +1,7 @@
 import { site } from "@/content/site";
 
 export type UbicacionWhatsApp =
-  "hero" | "flotante" | "especialidades" | "cierre" | "footer";
+  "hero" | "flotante" | "especialidades" | "perfil" | "cierre" | "footer";
 
 declare global {
   interface Window {
